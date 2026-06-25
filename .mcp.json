@@ -9,7 +9,9 @@
         "python",
         "tools/skills/mcp/ReverseLabToolsMCP/reverse_lab_tools_mcp.py"
       ],
-      "env": {}
+      "env": {
+        "PYTHONPATH": ""
+      }
     }
   }
 }
