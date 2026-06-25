@@ -1,0 +1,1 @@
+import{x as s,y as c,B as e}from"./arco.c23d6347.js";import{_ as a}from"./index.eb07c454.js";const n={},o={class:"page"},t=e("div",{class:"loading-three-colomns-container",style:{width:"32px",height:"22px"}},[e("span",{class:"column"}),e("span",{class:"column"}),e("span",{class:"column"})],-1),_=[t];function r(l,i){return s(),c("div",o,_)}var m=a(n,[["render",r]]);export{m as l};

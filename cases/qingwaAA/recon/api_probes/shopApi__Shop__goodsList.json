@@ -1,0 +1,46 @@
+{
+  "url": "https://pay.ldxp.cn/shopApi/Shop/goodsList",
+  "method": "POST",
+  "request_json": {
+    "token": "qingwaAA",
+    "keywords": "",
+    "category_id": "",
+    "goods_type": "",
+    "page": 1,
+    "pageSize": 10
+  },
+  "status_code": 200,
+  "elapsed_ms": 106.91,
+  "headers": {
+    "Server": "ESA",
+    "Content-Type": "application/json; charset=utf-8",
+    "Transfer-Encoding": "chunked",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "Date": "Thu, 18 Jun 2026 06:27:52 GMT",
+    "Set-Cookie": "PHPSESSID=3f225470d67df4b16ed681ca952f8ae6; expires=Thu, 18-Jun-2026 06:51:52 GMT; Max-Age=1440; path=/",
+    "Vary": "Accept-Encoding",
+    "via": "ens-cache34.l2eo166-18[61,0,DP], ens-kunlun1.cn9255[71,0,DP], ens-kunlun1.cn9255[72,0]",
+    "x-site-cache-status": "DYNAMIC",
+    "Access-Control-Allow-Origin": "https://pay.ldxp.cn",
+    "Access-Control-Allow-Credentials": "true",
+    "Access-Control-Allow-Methods": "",
+    "Access-Control-Allow-Headers": "",
+    "Access-Control-Max-Age": "0",
+    "Strict-Transport-Security": "max-age=31536000",
+    "Timing-Allow-Origin": "*",
+    "EagleId": "6edb0e8317817640722417868e"
+  },
+  "text_excerpt": "{\"code\":1,\"msg\":\"success\",\"time\":1781764072,\"data\":{\"total\":0,\"list\":[]}}",
+  "json": {
+    "code": 1,
+    "msg": "success",
+    "time": 1781764072,
+    "data": {
+      "total": 0,
+      "list": []
+    }
+  },
+  "text": "{\"code\":1,\"msg\":\"success\",\"time\":1781764072,\"data\":{\"total\":0,\"list\":[]}}",
+  "sha256": "db2b92285b88a7013b0b02b01b3ca1168387daee25c187abf35dd43c21fb84f4"
+}

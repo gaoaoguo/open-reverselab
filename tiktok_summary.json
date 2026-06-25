@@ -1,0 +1,309 @@
+{
+  "title": "",
+  "description": "",
+  "price": {},
+  "images": [],
+  "skus": [
+    {
+      "sku_id": "1731016411307020296",
+      "sku_sale_props": [
+        {
+          "prop_id": "7490802536832927534",
+          "prop_name": "size",
+          "prop_value_id": "6983920169747973894",
+          "prop_value": "Single Box"
+        }
+      ],
+      "sale_prop_value_ids": "6983920169747973894",
+      "stock": 34,
+      "purchase_limit": 20,
+      "price": {
+        "real_price": {
+          "price_str": "$19.99",
+          "price_val": "19.99",
+          "currency": "USD"
+        },
+        "need_icon": false
+      },
+      "need_icon": false,
+      "add_to_cart_button": {
+        "status": 1,
+        "click_hint": "",
+        "available_count": 20
+      },
+      "warehouse_id": "7287835021946980097",
+      "quantity_property": {
+        "default_add_cart_quantity": 1,
+        "quantity_minus_support_edit": true
+      },
+      "buy_button": {
+        "desc": "Buy now",
+        "default_desc": "Buy now",
+        "status": 1
+      },
+      "minimum_buy_quantity": 0,
+      "promotion_limit_quantity": 0,
+      "deduction_text": "Extra $8 off orders $40+",
+      "status": 1,
+      "pdp_button_area_id": "default",
+      "seller_promotion_id_list": [
+        "7646279767033923342"
+      ],
+      "need_refresh": true,
+      "price_desc_detail": {
+        "price_desc_detail_items": [
+          {
+            "title": "",
+            "sub_title": {
+              "template": "Items on TikTok Shop may display a strikethrough price in search results and on product detail pages. TikTok Shop bases strikethrough savings off of a list price. The list price (also known as the manufacturer's suggested retail price, or MSRP) is the suggested retail price of a new product as provided by a manufacturer, supplier, or seller. List prices may not necessarily reflect the prevailing market price of a product.",
+              "arguments": {
+                "{{Terms}}": {
+                  "link_text_type": 0,
+                  "text_attribute": {
+                    "text": "",
+                    "font": {
+                      "font_weight": 2,
+                      "font_class": 5
+                    }
+                  }
+                }
+              },
+              "text_attribute": {
+                "font": {
+                  "font_weight": 1,
+                  "font_class": 4
+                },
+                "font_color": {
+                  "color": "#FF000000",
+                  "dark_color": "#FFF6F6F6"
+                }
+              }
+            }
+          }
+        ],
+        "da_info": "{\"button_name\":\"item_price_info\"}"
+      },
+      "bcm_standard_track": {
+        "track_param": {
+          "bcm_multiverse_id": "20260623062249861408401005000000c20b4e49a1f78af4"
+        },
+        "chain_param": {
+          "bcm_multiverse_id": "20260623062249861408401005000000c20b4e49a1f78af4"
+        }
+      },
+      "price_v2": [
+        {
+          "price_type": 0,
+          "min_price": {
+            "sku_id": "1731016411307020296",
+            "currency_name": "USD",
+            "currency_symbol": "$",
+            "symbol_position": 1,
+            "sale_price_decimal": "19.99",
+            "origin_price_decimal": "",
+            "sale_price_format": "19.99",
+            "origin_price_format": "",
+            "discount_format": "",
+            "discount_decimal": "",
+            "price_prefix": "",
+            "reduce_price_format": "",
+            "single_product_price_format": "19.99",
+            "single_product_price_decimal": "19.99",
+            "show_currency_space": false,
+            "currency_show_mode": 1,
+            "unit_price_desc": "",
+            "post_seller_pre_platform_coupon_price": "",
+            "price_display_mode": 0,
+            "sale_price_integer_part_format": "19",
+            "sale_price_decimal_part_format": "99",
+            "decimal_point_symbol": ".",
+            "deposit_price_amount": "",
+            "after_coupon_price_format": "",
+            "after_coupon_price_decimal": "",
+            "after_coupon_price_integer_part_format": "",
+            "after_coupon_price_decimal_part_format": "",
+            "price_serialized_extra": ""
+          }
+        }
+      ],
+      "pdp_button_area_id_v2": [
+        {
+          "product_purchase_type": 0,
+          "pdp_button_area_id": "default"
+        },
+        {
+          "product_purchase_type": 1,
+          "pdp_button_area_id": "subscribe_and_atc"
+        }
+      ],
+      "is_support_try_on": false,
+      "price_detail": "{\"price_desc_detail_items\":[{\"title\":\"\",\"sub_title\":{\"template\":\"Items on TikTok Shop may display a strikethrough price in search results and on product detail pages. TikTok Shop bases strikethrough savings off of a list price. The list price (also known as the manufacturer's suggested retail price, or MSRP) is the suggested retail price of a new product as provided by a manufacturer, supplier, or seller. List prices may not necessarily reflect the prevailing market price of a product.\",\"arguments\":{\"{{Terms}}\":{\"link_text_type\":0,\"text_attribute\":{\"text\":\"\",\"font\":{\"font_weight\":2,\"font_class\":5}}}},\"text_attribute\":{\"font\":{\"font_weight\":1,\"font_class\":4},\"font_color\":{\"color\":\"#FF000000\",\"dark_color\":\"#FFF6F6F6\"}}}}],\"da_info\":\"{\\\"button_name\\\":\\\"item_price_info\\\"}\"}",
+      "quantity_promotion_notice_info": {
+        "location": 0,
+        "da_info": "{\"has_promo_price_limit\":\"0\"}"
+      },
+      "is_hot_sale": false,
+      "is_collected": false,
+      "da_info": "{\"delivery_flag_sku\":\"{\\\"free_shipping_product_cnt\\\":\\\"-1\\\"}\"}"
+    },
+    {
+      "sku_id": "1731016411307085832",
+      "sku_sale_props": [
+        {
+          "prop_id": "7490802536832927534",
+          "prop_name": "size",
+          "prop_value_id": "7026802557674899205",
+          "prop_value": "Whole Set"
+        }
+      ],
+      "sale_prop_value_ids": "7026802557674899205",
+      "stock": 2,
+      "low_stock_warning": "2 items left",
+      "purchase_limit": 20,
+      "price": {
+        "real_price": {
+          "price_str": "$239.88",
+          "price_val": "239.88",
+          "currency": "USD"
+        },
+        "need_icon": false
+      },
+      "need_icon": false,
+      "voucher_info": {
+        "best_voucher_type_ids": [
+          "7646279767033923342"
+        ],
+        "best_voucher_metas": [
+          {
+            "voucher_type_id": "7646279767033923342"
+          }
+        ]
+      },
+      "add_to_cart_button": {
+        "status": 1,
+        "click_hint": "",
+        "available_count": 2
+      },
+      "warehouse_id": "7287835021946980097",
+      "purchase_notice": {
+        "desc": "2 items left",
+        "notice_type": 1
+      },
+      "quantity_property": {
+        "default_add_cart_quantity": 1,
+        "quantity_minus_support_edit": true
+      },
+      "buy_button": {
+        "desc": "Buy now",
+        "default_desc": "Buy now",
+        "status": 1
+      },
+      "minimum_buy_quantity": 0,
+      "promotion_limit_quantity": 0,
+      "deduction_text": "Extra $8 off",
+      "status": 0,
+      "pdp_button_area_id": "default",
+      "seller_promotion_id_list": [
+        "7646279767033923342"
+      ],
+      "need_refresh": true,
+      "price_desc_detail": {
+        "price_desc_detail_items": [
+          {
+            "title": "",
+            "sub_title": {
+              "template": "Items on TikTok Shop may display a strikethrough price in search results and on product detail pages. TikTok Shop bases strikethrough savings off of a list price. The list price (also known as the manufacturer's suggested retail price, or MSRP) is the suggested retail price of a new product as provided by a manufacturer, supplier, or seller. List prices may not necessarily reflect the prevailing market price of a product.",
+              "arguments": {
+                "{{Terms}}": {
+                  "link_text_type": 0,
+                  "text_attribute": {
+                    "text": "",
+                    "font": {
+                      "font_weight": 2,
+                      "font_class": 5
+                    }
+                  }
+                }
+              },
+              "text_attribute": {
+                "font": {
+                  "font_weight": 1,
+                  "font_class": 4
+                },
+                "font_color": {
+                  "color": "#FF000000",
+                  "dark_color": "#FFF6F6F6"
+                }
+              }
+            }
+          }
+        ],
+        "da_info": "{\"button_name\":\"item_price_info\"}"
+      },
+      "bcm_standard_track": {
+        "track_param": {
+          "bcm_multiverse_id": "202606230622498614084010050000001bcf345257ac7dd7"
+        },
+        "chain_param": {
+          "bcm_multiverse_id": "202606230622498614084010050000001bcf345257ac7dd7"
+        }
+      },
+      "price_v2": [
+        {
+          "price_type": 0,
+          "min_price": {
+            "sku_id": "1731016411307085832",
+            "currency_name": "USD",
+            "currency_symbol": "$",
+            "symbol_position": 1,
+            "sale_price_decimal": "239.88",
+            "origin_price_decimal": "",
+            "sale_price_format": "239.88",
+            "origin_price_format": "",
+            "discount_format": "",
+            "discount_decimal": "",
+            "price_prefix": "",
+            "reduce_price_format": "",
+            "single_product_price_format": "239.88",
+            "single_product_price_decimal": "239.88",
+            "show_currency_space": false,
+            "currency_show_mode": 1,
+            "unit_price_desc": "",
+            "post_seller_pre_platform_coupon_price": "",
+            "price_display_mode": 0,
+            "sale_price_integer_part_format": "239",
+            "sale_price_decimal_part_format": "88",
+            "decimal_point_symbol": ".",
+            "deposit_price_amount": "",
+            "after_coupon_price_format": "",
+            "after_coupon_price_decimal": "",
+            "after_coupon_price_integer_part_format": "",
+            "after_coupon_price_decimal_part_format": "",
+            "price_serialized_extra": ""
+          }
+        }
+      ],
+      "pdp_button_area_id_v2": [
+        {
+          "product_purchase_type": 0,
+          "pdp_button_area_id": "default"
+        },
+        {
+          "product_purchase_type": 1,
+          "pdp_button_area_id": "subscribe_and_atc"
+        }
+      ],
+      "is_support_try_on": false,
+      "price_detail": "{\"price_desc_detail_items\":[{\"title\":\"\",\"sub_title\":{\"template\":\"Items on TikTok Shop may display a strikethrough price in search results and on product detail pages. TikTok Shop bases strikethrough savings off of a list price. The list price (also known as the manufacturer's suggested retail price, or MSRP) is the suggested retail price of a new product as provided by a manufacturer, supplier, or seller. List prices may not necessarily reflect the prevailing market price of a product.\",\"arguments\":{\"{{Terms}}\":{\"link_text_type\":0,\"text_attribute\":{\"text\":\"\",\"font\":{\"font_weight\":2,\"font_class\":5}}}},\"text_attribute\":{\"font\":{\"font_weight\":1,\"font_class\":4},\"font_color\":{\"color\":\"#FF000000\",\"dark_color\":\"#FFF6F6F6\"}}}}],\"da_info\":\"{\\\"button_name\\\":\\\"item_price_info\\\"}\"}",
+      "quantity_promotion_notice_info": {
+        "location": 0,
+        "da_info": "{\"has_promo_price_limit\":\"0\"}"
+      },
+      "is_hot_sale": false,
+      "is_collected": false,
+      "da_info": "{\"delivery_flag_sku\":\"{\\\"free_shipping_product_cnt\\\":\\\"-1\\\"}\"}"
+    }
+  ],
+  "specs": [],
+  "seller": "POPMART US SHOP"
+}

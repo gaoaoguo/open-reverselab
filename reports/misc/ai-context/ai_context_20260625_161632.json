@@ -1,0 +1,57 @@
+{
+  "time": "2026-06-25T16:16:32+08:00",
+  "task": "更新 GitHub 仓库 LING71671/open-reverselab 并配置 MCP",
+  "board_filter": "",
+  "no_popup_policy": "AI may run entries with launch_mode=cli or launch_mode=file_probe. Entries with launch_mode=gui must not be launched during automatic checks; verify them only by file existence/hash unless the user explicitly asks to open the GUI.",
+  "path_bootstrap_powershell": "$env:Path = \"$(Resolve-Path tools/bin);$(Resolve-Path tools/ctf-website/bin);$env:Path\"",
+  "matched_rules": [
+    {
+      "score": 1,
+      "id": "jadx-corrupt-repair",
+      "when": "GitHub release 下载不稳且本地 jadx zip/jar 损坏",
+      "tools": [
+        "android.jadx"
+      ],
+      "scripts": null,
+      "method": "若 jadx 再损坏，优先从 SourceForge mirror 下载 v1.5.5 zip，验证 zip/jar 后解压到 tools/android/jadx，并确认 ai_toolcheck android PASS。",
+      "evidence": "Tool version output and analysis artifacts produced in the current workspace."
+    }
+  ],
+  "related_findings": [],
+  "suggested_tools": [
+    {
+      "id": "android.jadx",
+      "board": "android",
+      "name": "jadx CLI",
+      "mode": "cli",
+      "ai_callable": true,
+      "command": "tools\\bin\\jadx.bat",
+      "safe_probe": {
+        "type": "command",
+        "timeout_ms": 20000
+      },
+      "notes": "CLI wrapper uses absolute classpath and does not launch GUI."
+    }
+  ],
+  "callable_tools_in_scope": [
+    {
+      "id": "android.apktool",
+      "board": "android",
+      "name": "apktool",
+      "command": "tools\\bin\\apktool.bat"
+    },
+    {
+      "id": "android.jadx",
+      "board": "android",
+      "name": "jadx CLI",
+      "command": "tools\\bin\\jadx.bat"
+    },
+    {
+      "id": "android.uber_apk_signer",
+      "board": "android",
+      "name": "uber-apk-signer",
+      "command": "tools\\bin\\uber-apk-signer.bat"
+    }
+  ],
+  "finding_record_template": "python scripts\\misc\\ai_finding.py add --board <board> --kind <tactic|pitfall|tool-rule|dead-end|cve-chain|reversing-flow> --title \"...\" --trigger \"...\" --finding \"...\" --evidence \"...\" --reuse \"...\" --keyword ..."
+}

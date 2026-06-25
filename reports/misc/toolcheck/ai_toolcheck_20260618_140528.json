@@ -1,0 +1,89 @@
+{
+  "time": "2026-06-18T14:05:28+08:00",
+  "registry": "D:\\Demo项目\\西安房产信息\\open-reverselab\\tools\\ai-tool-registry.json",
+  "overall": "FAIL",
+  "found": 4,
+  "bad": 4,
+  "results": [
+    {
+      "id": "system.python",
+      "board": "common",
+      "name": "Python",
+      "launch_mode": "cli",
+      "ai_callable": true,
+      "status": "FOUND",
+      "detail": "exit=0 Python 3.12.13",
+      "path": "python"
+    },
+    {
+      "id": "system.node",
+      "board": "common",
+      "name": "Node.js",
+      "launch_mode": "cli",
+      "ai_callable": true,
+      "status": "FOUND",
+      "detail": "exit=0 v24.9.0",
+      "path": "node"
+    },
+    {
+      "id": "system.java",
+      "board": "common",
+      "name": "Java",
+      "launch_mode": "cli",
+      "ai_callable": true,
+      "status": "FAIL",
+      "detail": "exit=3221225477 ",
+      "path": "java"
+    },
+    {
+      "id": "system.rg",
+      "board": "common",
+      "name": "ripgrep",
+      "launch_mode": "cli",
+      "ai_callable": true,
+      "status": "FAIL",
+      "detail": "[WinError 5] 拒绝访问。",
+      "path": "rg"
+    },
+    {
+      "id": "system.curl",
+      "board": "common",
+      "name": "curl",
+      "launch_mode": "cli",
+      "ai_callable": true,
+      "status": "FOUND",
+      "detail": "exit=0 curl 8.19.0 (Windows) libcurl/8.19.0 Schannel zlib/1.3.1 WinIDN WinLDAP Release-Date: 2026-03-11 Protocols: dict file ftp ftps gopher gophers http https imap imaps ipfs ipns ldap ldaps mqtt mqtts pop3 pop3s smb smbs smtp smtps telnet tftp ws wss Features: a...",
+      "path": "curl"
+    },
+    {
+      "id": "system.git",
+      "board": "common",
+      "name": "Git",
+      "launch_mode": "cli",
+      "ai_callable": true,
+      "status": "FOUND",
+      "detail": "exit=0 git version 2.51.0.windows.1",
+      "path": "git"
+    },
+    {
+      "id": "system.go",
+      "board": "common",
+      "name": "Go",
+      "launch_mode": "cli",
+      "ai_callable": true,
+      "status": "MISSING",
+      "detail": "[WinError 2] 系统找不到指定的文件。",
+      "path": "go"
+    },
+    {
+      "id": "system.docker",
+      "board": "common",
+      "name": "Docker",
+      "launch_mode": "cli",
+      "ai_callable": true,
+      "status": "MISSING",
+      "detail": "[WinError 2] 系统找不到指定的文件。",
+      "path": "docker"
+    }
+  ]
+}

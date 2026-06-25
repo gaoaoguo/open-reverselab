@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:pay.ldxp.cn)",
+      "Bash(curl -s -i -L --max-time 20 \"https://pay.ldxp.cn/shop/qingwaAA\" -H \"User-Agent: Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/120.0.0.0 Safari/537.36\")",
+      "Bash(curl -s -L --max-time 15 \"https://pay.ldxp.cn/shop/qingwaAA\" -H \"User-Agent: Mozilla/5.0\")",
+      "Bash(curl *)",
+      "Bash(python cases/qingwaAA/scripts/extract_js_strings.py)",
+      "Bash(python3 -c ' *)",
+      "Bash(python cases/qingwaAA/scripts/exploit_protocol.py)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(f'  {i[\\\\\"goods_key\\\\\"]}: stock={i[\\\\\"extend\\\\\"][\\\\\"stock_count\\\\\"]} price={i[\\\\\"price\\\\\"]} {i[\\\\\"name\\\\\"][:40]}'\\) for i in d['data']['list']]\")",
+      "Bash(where python *)",
+      "Bash(python -c ' *)",
+      "Bash(python cases/qingwaAA/scripts/poc_reproduce.py)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(php --version)",
+      "Bash(where php *)",
+      "Bash(python cases/qingwaAA/scripts/cve_2024_44902_exploit.py \"id\")",
+      "Bash(python cases/qingwaAA/scripts/cve_2024_44902_exploit.py \"cat /www/app/database.php 2>/dev/null||id\")",
+      "WebFetch(domain:priceai.cc)",
+      "Bash(curl -k -s --max-time 15 \"https://priceai.cc/products/chatgpt-plus\" -H \"User-Agent: Mozilla/5.0\")",
+      "Read(//tmp/**)",
+      "Bash(python cases/qingwaAA/scripts/analyze_priceai_chunks.py)",
+      "Bash(grep -oE '\\(var|const|let\\)\\\\s+\\\\w+\\\\s*=.*?\\(?:;|$\\)')",
+      "Bash(python -c \"from playwright.async_api import async_playwright; print\\('Playwright OK'\\)\")",
+      "Bash(python -c \"from PIL import Image; print\\('Pillow OK'\\)\")",
+      "Bash(python docin_scraper.py)",
+      "Bash(python tiktok_scraper.py \"https://vt.tiktok.com/ZS96JJBamJm3g-CoTlG/\")",
+      "Bash(python tiktok_scraper.py \"1729445131259252744\" -o tiktok_output.json)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(ls tools/skills/mcp/ReverseLabToolsMCP/)",
+      "Bash(cat .gitignore)",
+      "Bash(git add *)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "reverse_lab_tools"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "time": "2026-06-21T22:12:55+08:00",
+  "task": "分析 https://h5.lxll.com/#/ 的前端接口",
+  "board_filter": "",
+  "no_popup_policy": "AI may run entries with launch_mode=cli or launch_mode=file_probe. Entries with launch_mode=gui must not be launched during automatic checks; verify them only by file existence/hash unless the user explicitly asks to open the GUI.",
+  "path_bootstrap_powershell": "$env:Path = \"$(Resolve-Path tools/bin);$(Resolve-Path tools/ctf-website/bin);$env:Path\"",
+  "matched_rules": [],
+  "related_findings": [],
+  "suggested_tools": [],
+  "callable_tools_in_scope": [],
+  "finding_record_template": "python scripts\\misc\\ai_finding.py add --board <board> --kind <tactic|pitfall|tool-rule|dead-end|cve-chain|reversing-flow> --title \"...\" --trigger \"...\" --finding \"...\" --evidence \"...\" --reuse \"...\" --keyword ..."
+}
