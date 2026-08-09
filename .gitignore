@@ -91,8 +91,12 @@ tools/ctf-website/_downloads/
 
 # Local agent / IDE config (not part of public release)
 .codex/
+.reasonix/
 .claude/settings.local.json
 .serena/
+
+# Local build-generated site asset (tracked in repo; ignored via skip-worktree locally)
+site/public/assets/social-preview.png
 
 # Generated reports (may contain machine paths); keep README stubs
 reports/**
