@@ -212,6 +212,9 @@ Packer 类型:
   ├── Enigma      → EnigmaVBUnpacker / 手动修复
   ├── VMProtect   → 不能静态脱壳, 使用动态分析 + 内存 dump
   │   └── 工具: toolbox_launch("x64dbg") + dump at OEP
+  │   └── 虚拟化函数: 先定位 VM entry, 再走去虚拟化工具链
+  │       (kb/pe-reverse/05-crypto-unpack/02-vmp-virtualization-analysis,
+  │        03-vmp-devirtualization-toolchain)
   ├── Themida     → 同 VMP, 额外 anti-debug
   └── 未知/私有壳 → 自动 OEP 查找 + API tracer
 ```

@@ -17,6 +17,9 @@ signals:
   - "反调试"
   - "绕过"
   - "PEB"
+  - "VMProtect"
+  - "VMProtectIsDebuggerPresent"
+  - "ScyllaHide"
 mcp_tools:
   - ghidra_summary_call_focus
   - make_x64dbg_breakpoint_script
@@ -32,6 +35,8 @@ keywords:
   - "hardware breakpoint"
   - "rdtsc"
   - "debugger detection"
+  - "VMProtect"
+  - "ScyllaHide"
 difficulty: "intermediate"
 tags:
   - "anti-debug"
@@ -41,8 +46,10 @@ tags:
   - "debugger"
   - "dynamic-analysis"
 language: "zh-CN"
-last_updated: "2026-06-25"
-related_articles: []
+last_updated: "2026-08-09"
+related_articles:
+  - "pe-reverse/05-crypto-unpack/02-vmp-virtualization-analysis"
+  - "pe-reverse/05-crypto-unpack/03-vmp-devirtualization-toolchain"
 ---
 # 反调试检测与绕过
 
@@ -144,6 +151,30 @@ void ClearHWBp() {
         mov dr7, eax
     }
 }
+```
+
+## VMP 自检专项（VMProtect）
+
+VMProtect 的自检（SDK 或运行时注入）独立于虚拟化，检测手段与绕过：
+
+| 检测手段 | 说明 | 绕过 |
+|---|---|---|
+| `VMProtectIsDebuggerPresent()` | SDK API，内部组合 PEB/异常链/时间检测 | Frida hook 返回 0；或 patch 调用点（见 `05-crypto-unpack/02-vmp-virtualization-analysis`） |
+| `int 2d` / `int 3` 异常链检测 | 未接调试器时异常处理链吞掉，接了则断下 | ScyllaHide 异常链伪造选项 |
+| RDTSC 时间差 | 检测单步/断点延迟 | 硬断不停检测区；patch 阈值 |
+| 虚拟化工具检测 | 检测调试器插件/模拟环境 | ScyllaHide 全选隐藏；或 bochscpu 全系统模拟执行 |
+
+推荐前置方案：x64dbg 加载 **ScyllaHide** 插件（外部工具，需自行安装）勾选全部隐藏选项，再处理 VMP 样本；更隐蔽用 bochscpu（x64dbg 插件，Bochs 模拟器内执行，目标感知不到调试器，速度较慢）。
+
+```javascript
+// Frida 早期替换 VMP SDK 自检（若导出存在）
+var names = ["VMProtectIsDebuggerPresent", "VMProtectIsVirtualMachinePresent"]
+names.forEach(function (n) {
+    var p = Module.findExportByName(null, n)
+    if (p) Interceptor.replace(p, new NativeCallback(function () {
+        return 0
+    }, 'int', []))
+})
 ```
 
 ## 绕过实战脚本

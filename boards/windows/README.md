@@ -19,7 +19,7 @@ Windows PE 分析有一整套 MCP 自动化工具链，涵盖初筛、Ghidra 静
 
 ## 知识库
 
-PE 逆向知识库 `kb/pe-reverse/`：9 篇 C++/Frida 可运行技术文件，覆盖 triage、PE 结构、静态分析、动态分析、脱壳/dump、patch。
+PE 逆向知识库 `kb/pe-reverse/`：24 篇 C++/Frida 可运行技术文件，覆盖 triage、PE 结构、静态分析、动态分析、脱壳/dump（含 VMP 虚拟化分析与去虚拟化工具链）、patch、IOC/YARA/Sigma。
 
 ## 分析流程
 

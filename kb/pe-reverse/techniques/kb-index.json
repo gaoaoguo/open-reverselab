@@ -42,8 +42,12 @@
     },
     {
       "id": "crypto-unpack",
-      "signals": ["pack", "packer", "unpack", "脱壳", "upx", "aspack", "vmprotect", "themida", "scylla", "iat rebuild", "dump", "procdump", "oep"],
-      "files": ["05-crypto-unpack/01-pe-unpack-dump.md"],
+      "signals": ["pack", "packer", "unpack", "脱壳", "upx", "aspack", "vmprotect", "vmp", "themida", "scylla", "iat rebuild", "dump", "procdump", "oep", "virtualization", "devirtualization", "handler", "vm entry", "dispatcher", "triton", "vtl", "novmp", "去虚拟化"],
+      "files": [
+        "05-crypto-unpack/01-pe-unpack-dump.md",
+        "05-crypto-unpack/02-vmp-virtualization-analysis.md",
+        "05-crypto-unpack/03-vmp-devirtualization-toolchain.md"
+      ],
       "priority": 9
     },
     {

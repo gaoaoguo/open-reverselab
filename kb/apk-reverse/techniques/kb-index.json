@@ -61,10 +61,13 @@
     },
     {
       "id": "packer",
-      "signals": ["packer", "pack", "壳", "加固", "obfuscate", "混淆", "proguard", "dexclassloader", "dexfile", "multidex", "classloader", "oxorany", "ollvm", "upx", "control flow flattening", "string encryption", "self extract", "self extract", "自解压", "embedded payload", "gzip"],
+      "signals": ["packer", "pack", "壳", "加固", "obfuscate", "混淆", "proguard", "dexclassloader", "dexfile", "multidex", "classloader", "oxorany", "ollvm", "upx", "control flow flattening", "string encryption", "self extract", "self extract", "自解压", "embedded payload", "gzip", "vmp", "dex2c", "libjiagu", "libdexhelper", "libshell", "nop 填充", "native stub", "blackdex", "fart", "youpk", "unidbg", "stalker", "tracerpid", "ptrace", "反调试", "anti-debug", "解释器", "虚拟化"],
       "files": [
         "07-packer/01-obfuscation-detection.md",
-        "07-packer/02-self-extracting-payload.md"
+        "07-packer/02-self-extracting-payload.md",
+        "07-packer/03-vmp-dex2c-detection.md",
+        "07-packer/04-vmp-dump-trace-recovery.md",
+        "07-packer/05-vmp-anti-debug-bypass.md"
       ],
       "priority": 10
     },

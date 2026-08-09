@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>APK Reverse 知识库 | ReverseLab — Android 逆向 20 篇</title>
-  <meta name="description" content="APK 逆向技术知识库：8 分类 20 篇文章，覆盖 DEX/Java 修改、Native/SO/JNI 逆向、加密破解、网络协议 Hook、TLS Pinning、Frida 动态插桩、脱壳、重打包。每篇含可运行 Frida/C++ 代码。">
+  <title>APK Reverse 知识库 | ReverseLab — Android 逆向 23 篇</title>
+  <meta name="description" content="APK 逆向技术知识库：8 分类 23 篇文章，覆盖 DEX/Java 修改、Native/SO/JNI 逆向、加密破解、网络协议 Hook、TLS Pinning、Frida 动态插桩、脱壳（含 VMP/dex2c 分析）、重打包。每篇含可运行 Frida/C++ 代码。">
   <meta name="keywords" content="APK reverse engineering, Android reverse, Frida, IL2CPP, UE4, smali, DEX, SO injection, game hacking, APK 逆向, 安卓逆向, 游戏破解">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="APK Reverse 知识库 | ReverseLab">
-  <meta property="og:description" content="8 分类 20 篇 Android 逆向技术文章。DEX/Native/JNI/IL2CPP/UE4/Frida/Pinning/脱壳全覆盖。">
+  <meta property="og:description" content="8 分类 23 篇 Android 逆向技术文章。DEX/Native/JNI/IL2CPP/UE4/Frida/Pinning/VMP/脱壳全覆盖。">
   <meta property="og:url" content="https://ling71671.github.io/open-reverselab/kb/apk-reverse/">
   <link rel="canonical" href="https://ling71671.github.io/open-reverselab/kb/apk-reverse/">
   <link rel="stylesheet" href="../../assets/css/style.css">
@@ -19,8 +19,8 @@
     "@context": "https://schema.org",
     "@type": "TechArticleSeries",
     "name": "ReverseLab APK Reverse Engineering Knowledge Base",
-    "description": "8 categories, 20 articles: DEX/Java, Native/SO/JNI, crypto cracking, network protocol hooking, TLS pinning, Frida dynamic instrumentation, unpacking, repackaging.",
-    "numberOfItems": 20,
+    "description": "8 categories, 23 articles: DEX/Java, Native/SO/JNI, crypto cracking, network protocol hooking, TLS pinning, Frida dynamic instrumentation, unpacking (incl. VMP/dex2c), repackaging.",
+    "numberOfItems": 23,
     "inLanguage": "zh-CN",
     "isPartOf": {"@type": "SoftwareSourceCode", "name": "ReverseLab", "url": "https://github.com/LING71671/open-reverselab"}
   }
@@ -46,7 +46,7 @@
 
     <section class="hero">
       <h2>📱 APK Reverse — Android 逆向工程</h2>
-      <p class="hero-desc">8 分类 · 20 篇技术文章。覆盖静态分析、Frida 动态验证、TLS Pinning、脱壳、Patch 与重打包。</p>
+      <p class="hero-desc">8 分类 · 23 篇技术文章。覆盖静态分析、Frida 动态验证、TLS Pinning、脱壳（含 VMP/dex2c）、Patch 与重打包。</p>
       <div class="hero-actions">
         <a href="https://github.com/LING71671/open-reverselab/tree/main/kb/apk-reverse/techniques" class="btn-primary">GitHub 上浏览全部文章</a>
         <a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/attack-network.md" class="btn-secondary">查看攻击网图谱</a>
@@ -68,7 +68,7 @@
 
       <div class="kb-category"><h3>06-dynamic — 动态插桩（3 篇）</h3><ul><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/06-dynamic/01-memory-rw-hook.md">进程内存读写检测与 Hook</a></li><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/06-dynamic/02-overlay-rendering-hook.md">Overlay 渲染与 ImGui 检测</a></li><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/06-dynamic/03-touch-input-hook.md">触摸输入 Hook 与注入分析</a></li></ul></div>
 
-      <div class="kb-category"><h3>07-packer — 壳与混淆（2 篇）</h3><ul><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/07-packer/01-obfuscation-detection.md">编译期混淆检测与识别</a></li><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/07-packer/02-self-extracting-payload.md">自解压 Payload 与脚本嵌入</a></li></ul></div>
+      <div class="kb-category"><h3>07-packer — 壳与混淆（5 篇）</h3><ul><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/07-packer/01-obfuscation-detection.md">编译期混淆检测与识别</a></li><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/07-packer/02-self-extracting-payload.md">自解压 Payload 与脚本嵌入</a></li><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/07-packer/03-vmp-dex2c-detection.md">VMP/dex2c 加固识别与形态判定</a></li><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/07-packer/04-vmp-dump-trace-recovery.md">VMP 脱壳与语义还原（Dump/Trace/Recovery）</a></li><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/07-packer/05-vmp-anti-debug-bypass.md">Android 反调试检测与绕过（VMP 场景）</a></li></ul></div>
 
       <div class="kb-category"><h3>08-patch-repack — Patch/重打包（2 篇）</h3><ul><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/08-patch-repack/01-so-injection-repack.md">Native SO 注入与 APK 重打包</a></li><li><a href="https://github.com/LING71671/open-reverselab/blob/main/kb/apk-reverse/techniques/08-patch-repack/02-signature-integrity-bypass.md">签名与完整性检查绕过</a></li></ul></div>
     </section>

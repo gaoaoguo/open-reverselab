@@ -2,7 +2,7 @@
 
 APK/DEX/SO 逆向技术库。覆盖静态分析、Frida 动态验证、脱壳、Patch 与重打包。
 
-## 完整目录（8 类 / 20 篇）
+## 完整目录（8 类 / 23 篇）
 
 ### 01-dex-java — DEX/Java（1）
 
@@ -38,10 +38,13 @@ APK/DEX/SO 逆向技术库。覆盖静态分析、Frida 动态验证、脱壳、
 - [`06-dynamic/02-overlay-rendering-hook.md`](06-dynamic/02-overlay-rendering-hook.md) — Overlay 渲染与 ImGui 检测
 - [`06-dynamic/03-touch-input-hook.md`](06-dynamic/03-touch-input-hook.md) — 触摸输入 Hook 与注入分析
 
-### 07-packer — 壳与混淆（2）
+### 07-packer — 壳与混淆（5）
 
 - [`07-packer/01-obfuscation-detection.md`](07-packer/01-obfuscation-detection.md) — 编译期混淆检测与识别
 - [`07-packer/02-self-extracting-payload.md`](07-packer/02-self-extracting-payload.md) — 自解压 Payload 与脚本嵌入
+- [`07-packer/03-vmp-dex2c-detection.md`](07-packer/03-vmp-dex2c-detection.md) — VMP/dex2c 加固识别与形态判定
+- [`07-packer/04-vmp-dump-trace-recovery.md`](07-packer/04-vmp-dump-trace-recovery.md) — VMP 脱壳与语义还原（Dump/Trace/Recovery）
+- [`07-packer/05-vmp-anti-debug-bypass.md`](07-packer/05-vmp-anti-debug-bypass.md) — Android 反调试检测与绕过（VMP 场景）
 
 ### 08-patch-repack — Patch/重打包（2）
 

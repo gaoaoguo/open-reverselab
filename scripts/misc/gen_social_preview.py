@@ -74,7 +74,7 @@ def main() -> None:
     tag_f = font(34, bold=False)
     d.text(
         (74, 276),
-        "开源逆向工程实验环境 · 173 篇文章 · 100+ MCP 工具",
+        "开源逆向工程实验环境 · 183 篇文章 · 100+ MCP 工具",
         font=tag_f,
         fill=MUTED,
     )

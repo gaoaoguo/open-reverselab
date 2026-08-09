@@ -4,7 +4,7 @@
 
 > 🎯 Discord：[**discord.gg/But5j58J2f**](https://discord.gg/But5j58J2f)
 
-Open-source reverse engineering lab — 178-article knowledge base, 100+ MCP automation tools, covering CTF pentesting / APK reverse engineering / PE binary analysis / cryptography & protocol cracking / game cheating analysis. Agent-native, directory-as-convention.
+Open-source reverse engineering lab — 183-article knowledge base, 100+ MCP automation tools, covering CTF pentesting / APK reverse engineering / PE binary analysis / cryptography & protocol cracking / game cheating analysis. Agent-native, directory-as-convention.
 
 > [中文版](README.md)
 
@@ -26,8 +26,8 @@ Signal → kb_router(board=) → kb_read_file → Attack chain → MCP tool mapp
 ```
 kb/
 ├── ctf-website/techniques/   26 categories, 118 articles — Full web attack surface
-├── apk-reverse/techniques/    8 categories, 20 articles — APK/DEX reverse engineering
-├── pe-reverse/techniques/     9 categories, 22 articles — PE binary analysis
+├── apk-reverse/techniques/    8 categories, 23 articles — APK/DEX reverse engineering
+├── pe-reverse/techniques/     9 categories, 24 articles — PE binary analysis
 └── general/techniques/        5 categories, 17 articles — Cryptography / Protocols / Kernel / Cheating / Methodology
 ```
 

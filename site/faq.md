@@ -4,13 +4,13 @@
 
 ## 1. 什么是 ReverseLab？
 
-ReverseLab 是一个开源逆向工程实验环境，包含 **173 篇深度技术文章**组成的知识库、**100+ MCP (Model Context Protocol) 自动化工具**、以及 CTF/APK/PE 全链路自动化工作流。项目采用"目录即约定"设计，专为 AI Agent 辅助分析而构建。
+ReverseLab 是一个开源逆向工程实验环境，包含 **183 篇深度技术文章**组成的知识库、**100+ MCP (Model Context Protocol) 自动化工具**、以及 CTF/APK/PE 全链路自动化工作流。项目采用"目录即约定"设计，专为 AI Agent 辅助分析而构建。
 
 ## 2. ReverseLab 的知识库覆盖哪些领域？
 
-- **CTF Website**（26 分类 113 篇）：JWT / SQLi / SSRF / XSS / CVE / DoS / Payment / Paywall / 签名攻击 / API / OAuth / 云原生 / IAM
-- **APK Reverse**（8 分类 20 篇）：DEX / Native / JNI / IL2CPP / Frida / Pinning / 脱壳 / 重打包
-- **PE Reverse**（9 分类 22 篇）：Ghidra 静态分析 / x64dbg 动态调试 / TLS Callback / API Resolver / IOC / YARA / Sigma / Patch / 免杀
+- **CTF Website**（26 分类 118 篇）：JWT / SQLi / SSRF / XSS / CVE / DoS / Payment / Paywall / 签名攻击 / API / OAuth / 云原生 / IAM
+- **APK Reverse**（8 分类 23 篇）：DEX / Native / JNI / IL2CPP / Frida / Pinning / 脱壳 / VMP / 重打包
+- **PE Reverse**（9 分类 24 篇）：Ghidra 静态分析 / x64dbg 动态调试 / TLS Callback / API Resolver / VMP 虚拟化 / IOC / YARA / Sigma / Patch / 免杀
 - **General**（5 分类 17 篇）：Linux 内核利用 / 加密算法识别 / PRNG 破解 / 游戏作弊与反作弊 / 协议逆向 / 固件 / 硬件
 - **Windows**（1 篇）：Windows 平台配置注入专项
 

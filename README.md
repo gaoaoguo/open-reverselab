@@ -4,7 +4,7 @@
 
 > 🎯 Discord：[**discord.gg/But5j58J2f**](https://discord.gg/But5j58J2f)
 
-开源逆向工程实验环境 —— 178 篇知识库文章，100+ MCP 自动化工具，覆盖 CTF 渗透测试 / APK 逆向 / PE 二进制分析 / 加密协议破解 / 游戏作弊分析。Agent 原生设计，目录即约定。
+开源逆向工程实验环境 —— 183 篇知识库文章，100+ MCP 自动化工具，覆盖 CTF 渗透测试 / APK 逆向 / PE 二进制分析 / 加密协议破解 / 游戏作弊分析。Agent 原生设计，目录即约定。
 
 > [English version](README.en.md)
 
@@ -26,8 +26,8 @@
 ```
 kb/
 ├── ctf-website/techniques/   26 类 118 篇 — Web 攻击全表面
-├── apk-reverse/techniques/    8 类 20 篇 — APK/DEX 逆向
-├── pe-reverse/techniques/     9 类 22 篇 — PE 二进制分析
+├── apk-reverse/techniques/    8 类 23 篇 — APK/DEX 逆向
+├── pe-reverse/techniques/     9 类 24 篇 — PE 二进制分析
 └── general/techniques/        5 类 17 篇 — 密码学/协议/内核/作弊/方法论
 ```
 

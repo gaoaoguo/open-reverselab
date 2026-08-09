@@ -1,6 +1,6 @@
-# PE Reverse 逆向工程知识库 — Windows 二进制分析 22 篇
+# PE Reverse 逆向工程知识库 — Windows 二进制分析 24 篇
 
-Windows PE/二进制逆向技术库，共 **9 类、22 篇正文**。
+Windows PE/二进制逆向技术库，共 **9 类、24 篇正文**。
 
 ## 入口
 

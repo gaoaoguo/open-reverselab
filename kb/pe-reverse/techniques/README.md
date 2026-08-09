@@ -2,7 +2,7 @@
 
 Windows PE/二进制逆向技术库。覆盖 triage、静态/动态分析、脱壳、IOC、检测规则与 Patch。
 
-## 完整目录（9 类 / 22 篇）
+## 完整目录（9 类 / 24 篇）
 
 ### 01-triage — 初筛（1）
 
@@ -32,9 +32,11 @@ Windows PE/二进制逆向技术库。覆盖 triage、静态/动态分析、脱�
 - [`04-dynamic-analysis/07-direct-syscall.md`](04-dynamic-analysis/07-direct-syscall.md) — Direct Syscall：绕过用户态 Hook
 - [`04-dynamic-analysis/08-procmon-patterns.md`](04-dynamic-analysis/08-procmon-patterns.md) — Procmon 行为监控与过滤
 
-### 05-crypto-unpack — 加密/脱壳（1）
+### 05-crypto-unpack — 加密/脱壳（3）
 
 - [`05-crypto-unpack/01-pe-unpack-dump.md`](05-crypto-unpack/01-pe-unpack-dump.md) — PE 脱壳与内存 Dump
+- [`05-crypto-unpack/02-vmp-virtualization-analysis.md`](05-crypto-unpack/02-vmp-virtualization-analysis.md) — VMP 虚拟化原理与 VM Entry 定位
+- [`05-crypto-unpack/03-vmp-devirtualization-toolchain.md`](05-crypto-unpack/03-vmp-devirtualization-toolchain.md) — VMP 去虚拟化工具链（Devirtualization）
 
 ### 06-ioc-extraction — IOC 提取（2）
 

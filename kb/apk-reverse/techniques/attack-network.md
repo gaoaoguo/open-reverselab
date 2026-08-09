@@ -57,6 +57,9 @@ graph TD
     SELF_EXTRACT["Self Extract<br/>07-packer"]
     DEX_UNPACK["DEX Unpack<br/>07-packer"]
     SO_UNPACK["SO Unpack<br/>07-packer"]
+    VMP_DETECT["VMP/dex2c ID<br/>07-packer"]
+    VMP_TRACE["VMP Trace/Recovery<br/>07-packer"]
+    VMP_ANTIDBG["VMP Anti-Debug<br/>07-packer"]
 
     %% === Layer 7: Patch / Repack ===
     REPACK["Repack<br/>08-patch-repack"]
@@ -153,6 +156,13 @@ graph TD
     DEX_UNPACK -->|dump dex| JADX
     SO_UNPACK -->|dump so| NATIVE
     SELF_EXTRACT -->|extract payload| DEX_UNPACK
+    PACKER_APK -->|VMP/dex2c 判定| VMP_DETECT
+    VMP_DETECT -->|dump 失效确认| VMP_TRACE
+    VMP_DETECT -->|native stub/解释器 so| VMP_TRACE
+    FRIDA_APK -->|spawn 早注入| VMP_ANTIDBG
+    VMP_ANTIDBG -->|绕过完成| VMP_TRACE
+    VMP_TRACE -->|unidbg/Stalker trace| VMP_ANTIDBG
+    VMP_TRACE -->|语义还原回填| JADX
 
     %% --- Edges: Analysis → Patch/Repack ---
     SMALI -->|modify logic| SMALI_INJECT
@@ -219,6 +229,15 @@ APK → jadx → multidex/DexClassLoader → packer detected (加固)
   → readelf on libprotect.so → UPX/ollvm detected
   → Frida hook dlopen → dump decrypted SO at runtime
   → jadx + Ghidra re-analyze dumped files
+```
+
+### 路径 3.1: VMP/dex2c 分析 (Packer→形态判定→Anti-Debug→Trace→还原)
+```
+APK → jadx → 目标方法空/nop/stub → VMP/dex2c 判定 (so 特征: jiagu/DexHelper/shell*)
+  → dump 摸底 (frida-dexdump/BlackDex) → 方法仍无 CodeItem → VMP 确认, dump 路线终止
+  → frida-server 换端口 + spawn 早注入 → TracerPid/双进程/时间检测绕过
+  → unidbg instruction trace 或 Frida Stalker trace 解释器 dispatch
+  → handler 映射表 → 字节码翻译为伪代码 → 等价性验证 → 回填 jadx/Ghidra 继续分析
 ```
 
 ### 路径 4: 在线验证绕过 (APK→Network→License→Patch→Repack)

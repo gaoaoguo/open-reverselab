@@ -51,6 +51,8 @@ graph TD
     ALGO_ID["Algorithm ID<br/>general/crypto"]
     KEY_RECOVER["Key Recovery<br/>general/crypto"]
     PROTO_REV["Protocol Rev<br/>general/protocol"]
+    VMP_ENTRY["VMP VM Entry<br/>05-crypto-unpack"]
+    VMP_DEVIRT["VMP Devirtualize<br/>05-crypto-unpack"]
 
     %% === Layer 5: IOC / Detection ===
     IOC["IOC Extraction<br/>06-ioc-extraction"]
@@ -125,6 +127,12 @@ graph TD
     MEMDUMP -->|carve_payloads| UNPACK_CRYPTO
     X64DBG -->|trace decrypt| KEY_RECOVER
     FRIDA -->|hook send/recv| PROTO_REV
+    ANTIDEBUG -->|VMP self-check bypass| VMP_ENTRY
+    DIE -->|VMProtect signature| VMP_ENTRY
+    UNPACK -->|VMProtect 虚拟化| VMP_ENTRY
+    VMP_ENTRY -->|handler/bytecode 分析| VMP_DEVIRT
+    VMP_ENTRY -->|VM entry 地址表| VMP_DEVIRT
+    VMP_DEVIRT -->|devirt 产物| GHIDRA
 
     %% --- Edges: Crypto → Everything ---
     UNPACK -->|dump analysis| GHIDRA
@@ -221,6 +229,15 @@ graph TD
   → x64dbg 断 LdrpCallTlsInitializers
   → callback 内反调试/解密/import resolver
   → patch 条件或 dump 解密后内存 → 回到 Ghidra 重分析
+```
+
+### 路径 2.2: VMP 虚拟化分析 (Pack→VM Entry→Devirt→Verify)
+```
+样本 → DiE → VMProtect(2.x/3.x) 确认
+  → x64dbg + ScyllaHide 过自检 → 定位 VM entry(上下文保存序列/VM key)
+  → 记录 dispatcher/handler 表 → 内存 dump 字节码区
+  → 第1级 NoVmp 静态 devirt → 第2级 Triton DSE → 第3级 trace 折叠
+  → 输入输出等价性验证 → 还原结果回填 Ghidra → 常规分析继续
 ```
 
 ### 路径 3: 加密/协议逆向 (Crypto→Protocol→Key→Decrypt)
