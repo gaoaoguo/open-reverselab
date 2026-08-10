@@ -133,6 +133,20 @@ python scripts/misc/public_release_check.py
 
 `--board misc` verifies the fresh-clone core Agent scripts and lightweight tools. Run the full `python scripts/misc/ai_toolcheck.py` only after installing the Android, Windows, and CTF board toolchains you need.
 
+## Environment Snapshot (auto-probed on first use)
+
+When you first open this project with an AI agent, the agent follows the
+[Environment Snapshot Protocol in AGENTS.md](AGENTS.md): it probes this machine
+(OS, dev toolchain, reverse-engineering tools, Python RE libs, devices, sanitized
+env vars, network, workspace) and writes the result to
+`~/.open-reverselab/env/env.md` (Windows: `%USERPROFILE%\.open-reverselab\env\env.md`).
+
+The snapshot is machine-level and **shared across projects**: on every new session /
+new folder the agent reads it directly, and only re-probes when it is older than
+7 days or the protocol version changed. The snapshot stays on your machine under the
+agreed path — never committed to the repo; env vars are sanitized per the protocol
+(secret-like names are marked "set (masked)", proxy URLs have userinfo stripped).
+
 ## Context Chain
 
 On startup the Agent loads context along this chain:

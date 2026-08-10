@@ -1,5 +1,13 @@
 # ReverseLab AI Usage Guide
 
+## 0. 环境快照协议（每次会话开始先执行）
+
+按 [AGENTS.md「环境快照协议」](AGENTS.md) 路由：检查
+`~/.open-reverselab/env/env.md`（Windows: `%USERPROFILE%\.open-reverselab\env\env.md`）。
+存在且 `protocol_version` 匹配、`probe_time` 距今 ≤ 7 天 → 读取全文后继续；
+不存在 / 过期 / 版本不符 → 按 AGENTS.md 探测流程用你的工具探测本机环境并生成
+env.md 后再继续。env.md 是本机级快照、跨项目共享，只写本机路径，禁止写入或提交到仓库。
+
 这是给 AI/Agent 的全局操作入口。任何任务先判断所属板块，再沿 board、case、tools、kb、reports 的链路推进；不要只在当前目录里孤立工作。
 
 ## 1. 任务路由

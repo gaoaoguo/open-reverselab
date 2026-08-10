@@ -134,6 +134,17 @@ python scripts/misc/ai_toolcheck.py --board misc
 2. 制品优先追加/插入，保持原文风格不变
 3. 案例细节留私库，通用化技术写入制品后同步开源
 
+## 环境快照（首次使用自动探测）
+
+首次用 AI 打开本项目时，Agent 会按 [AGENTS.md 的「环境快照协议」](AGENTS.md)
+自动探测本机环境（系统、开发环境、逆向工具链、Python 逆向库、设备、环境变量脱敏、
+网络、工作区），并写入本机 `~/.open-reverselab/env/env.md`
+（Windows 为 `%USERPROFILE%\.open-reverselab\env\env.md`）。
+
+该文件是本机级快照，**跨项目共享**：之后每次新开会话 / 新开文件夹，Agent 直接读取，
+只有超过 7 天或协议版本升级时才自动重新探测。快照只存本机约定路径，不会进入仓库；
+环境变量按协议脱敏（密钥类只标"已设置"，代理去除 userinfo）。
+
 ## 链路
 
 启动时 Agent 沿此链路加载上下文：

@@ -383,3 +383,63 @@ Python 脚本应具备：
 
 ## 13. Final Conclusion
 ```
+
+---
+
+## 环境快照协议（protocol_version: 1）
+
+每次新会话 / 新立项开始时，先按以下路由处理本机环境快照（纯提示词协议，无脚本依赖）：
+
+1. **检查** `~/.open-reverselab/env/env.md`（Windows 为 `%USERPROFILE%\.open-reverselab\env\env.md`；可用环境变量 `REVERSELAB_ENV_DIR` 覆盖目录）。
+2. **读取 front-matter**（文件顶部 YAML）：
+   - `protocol_version == 1` 且 `probe_time` 距今 ≤ 7 天 → 直接读取 env.md 全文，进入任务。
+   - 文件不存在 / 已过期（> 7 天）/ `protocol_version` 不匹配 → 执行下方探测流程，重新生成 env.md 后再读取。
+3. env.md 是本机级快照，**跨项目共享**：只写入上述本机路径，禁止写入仓库内任何位置；内容含本机信息，不得提交到公开仓库。
+4. 同一次会话内后续直接读取，不再重复探测；探测完成后用同样规则更新本机 env.md。
+
+### 探测流程（AI 自行执行，只读、单项失败不中断、总耗时 ≤ 1 分钟）
+
+用可用工具（PowerShell / bash / python 等）逐项收集，写入 env.md：
+
+- **系统**：OS 名称与版本、架构、CPU 型号/核数、内存、磁盘剩余、主机名、区域
+- **开发环境**：python/pip、node/npm、go、rustc/cargo、java、dotnet、PowerShell、git、docker 等（有则版本，无则标注未安装）
+- **逆向工具链**：ghidra、rizin/rz-bin、diec、x64dbg、procmon、pe-bear、frida、jadx、apktool、adb、burp、sqlmap、jwt_tool、gdb、objdump、llvm 等
+- **Python 逆向库**：lief、frida、angr、capstone、keystone、pyelftools、pefile、yara 等
+- **设备**：adb devices（模拟器/真机 serial 与状态）
+- **环境变量（脱敏）**：JAVA_HOME、ANDROID_HOME、ANDROID_SDK_ROOT、PYTHONPATH、GOPATH、CARGO_HOME、LANG/LC_*、HTTP(S)_PROXY
+- **网络**：外网连通性（3 秒超时；失败标记"离线"，不阻塞后续探测）
+- **工作区**：当前项目路径、git 分支与状态
+
+### 环境变量脱敏（强制）
+
+- 变量名匹配 `KEY|TOKEN|SECRET|PASSWORD|AUTH|CREDENTIAL` → 只写 `已设置(脱敏)`，不记录值。
+- `HTTP(S)_PROXY` → 去除 userinfo，格式 `已设置 (http://***:***@host:port)`。
+- 其余环境变量不记录。
+
+### env.md 模板
+
+```markdown
+---
+protocol_version: 1
+probe_time: <ISO8601 时间>
+host: <主机名>
+---
+
+# 本机环境快照 (open-reverseLab)
+
+## 系统
+
+## 开发环境
+
+## 逆向工具链
+
+## Python 逆向库
+
+## 设备
+
+## 环境变量（脱敏）
+
+## 网络
+
+## 工作区
+```
