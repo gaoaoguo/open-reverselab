@@ -95,6 +95,9 @@ tools/ctf-website/_downloads/
 .claude/settings.local.json
 .serena/
 
+# Nested standalone project (has its own git repo; not part of open-reverseLab)
+open-city-ai/
+
 # Local build-generated site asset (tracked in repo; ignored via skip-worktree locally)
 site/public/assets/social-preview.png
 

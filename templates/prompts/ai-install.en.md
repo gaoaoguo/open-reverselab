@@ -5,13 +5,19 @@ Copy the full prompt below into Codex, Claude Code, or another AI Agent to have 
 ```text
 You are my ReverseLab setup assistant. Complete first-run setup, checks, and handoff for open-reverselab on my machine.
 
+0. First confirm my operating system (Windows / macOS / Linux); choose commands by platform for every step below.
+
 Goals:
 1. If the repository is not present, clone https://github.com/LING71671/open-reverselab.git into a stable directory such as <workspace>/open-reverselab.
 2. If the repository already exists, use the existing open-reverselab folder instead of cloning again.
-3. On Windows, prefer running START_HERE.bat from the repository root. If you are working from a terminal, you may run:
-   python scripts/misc/first_run_check.py --write-report
-   uv run --project tools/skills/mcp/ReverseLabToolsMCP python scripts/misc/mcp_smoke_check.py --write-report
-   powershell -NoProfile -ExecutionPolicy Bypass -File scripts/misc/start_here.ps1
+3. First-run checks (platform-dependent):
+   - Windows: prefer running START_HERE.bat from the repository root. If you are working from a terminal, you may run:
+     python scripts/misc/first_run_check.py --write-report
+     uv run --project tools/skills/mcp/ReverseLabToolsMCP python scripts/misc/mcp_smoke_check.py --write-report
+     powershell -NoProfile -ExecutionPolicy Bypass -File scripts/misc/start_here.ps1
+   - macOS / Linux: no .bat/.ps1 entry points; run directly (Python and uv are cross-platform):
+     python3 scripts/misc/first_run_check.py --write-report
+     uv run --project tools/skills/mcp/ReverseLabToolsMCP python3 scripts/misc/mcp_smoke_check.py --write-report
 4. Confirm that .mcp.json contains mcpServers.reverse_lab_tools.
 5. Confirm that the reverse_lab_tools entry script exists:
    tools/skills/mcp/ReverseLabToolsMCP/reverse_lab_tools_mcp.py
@@ -27,14 +33,17 @@ Safety and public-repository boundary:
 3. If you need to modify repository files, explain why first. Before committing, run:
    python scripts/misc/public_release_check.py
    python scripts/misc/lab_healthcheck.py
-4. If board-specific tools are needed (apktool/jadx/DiE/x64dbg etc.), ask me for my install
-   preference first:
-   - One-click full install (convenient): .\scripts\misc\install_tools.ps1 -All
-   - On-demand install (precise): tell me the direction, then run only the matching one
-       .\scripts\misc\install_tools.ps1 -CTF
-       .\scripts\misc\install_tools.ps1 -Android
-       .\scripts\misc\install_tools.ps1 -Windows
-       .\scripts\misc\install_tools.ps1 -Common
+4. If board-specific tools are needed (apktool/jadx/DiE/x64dbg etc.), handle by platform:
+   - Windows: ask me for my install preference first:
+       - One-click full install (convenient): .\scripts\misc\install_tools.ps1 -All
+       - On-demand install (precise): tell me the direction, then run only the matching one
+           .\scripts\misc\install_tools.ps1 -CTF
+           .\scripts\misc\install_tools.ps1 -Android
+           .\scripts\misc\install_tools.ps1 -Windows
+           .\scripts\misc\install_tools.ps1 -Common
+   - macOS / Linux: no one-click install script; install manually per tools/<board>/README.md
+     (Ghidra/Cutter/jadx/apktool/DiE all have mac/Linux builds; download and extract into the
+     matching tools/ directory, then create a launcher under tools/bin/ or add to PATH)
 5. VMP-specific tools (NoVmp/unidbg/ScyllaHide etc.): ask my install preference first, one of two:
    [A] One-click install: install all VMP tools at once (common libraries + PE group +
        Android group), then verify everything together
@@ -54,17 +63,24 @@ Safety and public-repository boundary:
           Triton: not in the MCP allowlist, and the PyPI `triton` package name conflicts with
           OpenAI's GPU compiler; build from https://github.com/JonathanSalwan/Triton if needed
           (requires CMake/LLVM), or use angr as the DSE fallback.
-       b. PE group (x64dbg anti-debug / static devirtualization):
-          ScyllaHide (required): https://github.com/x64dbg/ScyllaHide/releases
-            → extract to tools/windows/x64dbg/plugins/; Verify: appears in the x64dbg plugin
-            menu with all hide options enabled
-          NoVmp / NoVmpy: git clone --recursive https://github.com/can1357/NoVmp
-            → tools/windows/NoVmp, build Release x64 with Visual Studio 2022;
-            NoVmpy: pip install --user novmpy (if not on PyPI, git clone
-            https://github.com/wallds/NoVmpy);
-            Verify: NoVmp.exe <sample> <function RVA> produces .devirt.exe / .ll
-          bochscpu (optional): https://github.com/x64dbg/bochscpu/releases → plugins/;
-            Verify: appears in the x64dbg plugin menu
+       b. PE group (x64dbg anti-debug / static devirtualization, by platform):
+          - Windows:
+            ScyllaHide (required): https://github.com/x64dbg/ScyllaHide/releases
+              → extract to tools/windows/x64dbg/plugins/; Verify: appears in the x64dbg plugin
+              menu with all hide options enabled
+            NoVmp / NoVmpy: git clone --recursive https://github.com/can1357/NoVmp
+              → tools/windows/NoVmp, build Release x64 with Visual Studio 2022;
+              NoVmpy: pip install --user novmpy (if not on PyPI, git clone
+              https://github.com/wallds/NoVmpy);
+              Verify: NoVmp.exe <sample> <function RVA> produces .devirt.exe / .ll
+            bochscpu (optional): https://github.com/x64dbg/bochscpu/releases → plugins/;
+              Verify: appears in the x64dbg plugin menu
+          - macOS / Linux (x64dbg-family tools unavailable; use alternatives):
+            Dynamic debugging: GDB (Linux) / LLDB (macOS), or rizin (cross-platform)
+            Anti-debug bypass: Frida (cross-platform; the Frida scripts in
+              kb/pe-reverse/techniques/04-dynamic-analysis/05-anti-debug-bypass.md apply too)
+            Static devirt: prefer NoVmpy (pip install --user novmpy, cross-platform);
+              NoVmp can be built on Linux with CMake (vcpkg dependencies, complex, optional)
        c. Android group (.so emulation trace / dump triage):
           unidbg (main route; requires JDK 17+): git clone --depth 1
             https://github.com/zhkl0228/unidbg → tools/android/unidbg;

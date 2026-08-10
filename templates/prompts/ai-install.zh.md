@@ -5,13 +5,19 @@
 ```text
 你是我的 ReverseLab 安装助手。请在我的电脑上完成 open-reverselab 的首次安装、检查和交付，要求如下：
 
+0. 先确认我的操作系统（Windows / macOS / Linux），后续所有安装命令按平台选择执行。
+
 目标：
 1. 如果我还没有仓库，请把 https://github.com/LING71671/open-reverselab.git 克隆到一个稳定目录，例如 <workspace>/open-reverselab。
 2. 如果我已经有仓库，请直接使用现有的 open-reverselab 文件夹，不要重复克隆。
-3. Windows 用户优先运行根目录的 START_HERE.bat；如果你在终端环境里操作，也可以运行：
-   python scripts/misc/first_run_check.py --write-report
-   uv run --project tools/skills/mcp/ReverseLabToolsMCP python scripts/misc/mcp_smoke_check.py --write-report
-   powershell -NoProfile -ExecutionPolicy Bypass -File scripts/misc/start_here.ps1
+3. 首次安装检查（按平台）：
+   - Windows：优先运行根目录的 START_HERE.bat；如果你在终端环境里操作，也可以运行：
+     python scripts/misc/first_run_check.py --write-report
+     uv run --project tools/skills/mcp/ReverseLabToolsMCP python scripts/misc/mcp_smoke_check.py --write-report
+     powershell -NoProfile -ExecutionPolicy Bypass -File scripts/misc/start_here.ps1
+   - macOS / Linux：没有 .bat/.ps1 入口，直接运行（Python/uv 均跨平台）：
+     python3 scripts/misc/first_run_check.py --write-report
+     uv run --project tools/skills/mcp/ReverseLabToolsMCP python3 scripts/misc/mcp_smoke_check.py --write-report
 4. 必须确认 .mcp.json 里存在 mcpServers.reverse_lab_tools。
 5. 必须确认 reverse_lab_tools 的入口脚本存在：
    tools/skills/mcp/ReverseLabToolsMCP/reverse_lab_tools_mcp.py
@@ -27,13 +33,17 @@
 3. 如果你需要修改仓库文件，先说明目的；提交前必须运行：
    python scripts/misc/public_release_check.py
    python scripts/misc/lab_healthcheck.py
-4. 如果要安装板块工具（apktool/jadx/DiE/x64dbg 等），先问我安装偏好：
-   - 一键全装（省事）：.\scripts\misc\install_tools.ps1 -All
-   - 按需安装（精准）：告诉我需要哪个方向再执行
-       .\scripts\misc\install_tools.ps1 -CTF
-       .\scripts\misc\install_tools.ps1 -Android
-       .\scripts\misc\install_tools.ps1 -Windows
-       .\scripts\misc\install_tools.ps1 -Common
+4. 如果要安装板块工具（apktool/jadx/DiE/x64dbg 等），按平台处理：
+   - Windows：先问我安装偏好：
+       - 一键全装（省事）：.\scripts\misc\install_tools.ps1 -All
+       - 按需安装（精准）：告诉我需要哪个方向再执行
+           .\scripts\misc\install_tools.ps1 -CTF
+           .\scripts\misc\install_tools.ps1 -Android
+           .\scripts\misc\install_tools.ps1 -Windows
+           .\scripts\misc\install_tools.ps1 -Common
+   - macOS / Linux：没有一键安装脚本；按 tools/<board>/README.md 手动安装
+     （Ghidra/Cutter/jadx/apktool/DiE 均有 mac/Linux 版，下载解压到 tools/ 对应目录并
+     在 tools/bin/ 创建启动脚本或加入 PATH）
 5. VMP 专项工具（NoVmp/unidbg/ScyllaHide 等）同样先问我安装偏好，二选一：
    [A] 一键安装：所有 VMP 工具一次装齐（公共库 + PE 组 + Android 组），装完统一验证
    [B] 按需安装：只装当前样本需要的组（按形态判定），最小集
@@ -50,16 +60,23 @@
           Triton：未列入 MCP allowlist，且 PyPI 的 triton 包名与 OpenAI GPU 编译器冲突；
           需要时从 https://github.com/JonathanSalwan/Triton 源码构建（依赖 CMake/LLVM），
           或先用 angr 代替 DSE。
-       b. PE 组（x64dbg 反调试/静态去虚拟化）：
-          ScyllaHide（必装）: https://github.com/x64dbg/ScyllaHide/releases
-            → 解压到 tools/windows/x64dbg/plugins/；验证：插件菜单出现并启用全部隐藏选项
-          NoVmp / NoVmpy: git clone --recursive https://github.com/can1357/NoVmp
-            → tools/windows/NoVmp，Visual Studio 2022 构建 Release x64；
-            NoVmpy: pip install --user novmpy（PyPI 未发布则 git clone
-            https://github.com/wallds/NoVmpy）；
-            验证：NoVmp.exe <样本> <函数RVA> 输出 .devirt.exe / .ll
-          bochscpu（可选）: https://github.com/x64dbg/bochscpu/releases → plugins/；
-            验证：插件菜单出现 bochscpu
+       b. PE 组（x64dbg 反调试/静态去虚拟化，按平台）：
+          - Windows：
+            ScyllaHide（必装）: https://github.com/x64dbg/ScyllaHide/releases
+              → 解压到 tools/windows/x64dbg/plugins/；验证：插件菜单出现并启用全部隐藏选项
+            NoVmp / NoVmpy: git clone --recursive https://github.com/can1357/NoVmp
+              → tools/windows/NoVmp，Visual Studio 2022 构建 Release x64；
+              NoVmpy: pip install --user novmpy（PyPI 未发布则 git clone
+              https://github.com/wallds/NoVmpy）；
+              验证：NoVmp.exe <样本> <函数RVA> 输出 .devirt.exe / .ll
+            bochscpu（可选）: https://github.com/x64dbg/bochscpu/releases → plugins/；
+              验证：插件菜单出现 bochscpu
+          - macOS / Linux（x64dbg 系工具不可用，用替代）：
+            动态调试：GDB（Linux）/ LLDB（macOS），或 rizin（跨平台）
+            反调试绕过：Frida（跨平台；kb/pe-reverse/techniques/04-dynamic-analysis/
+              05-anti-debug-bypass.md 的 Frida 脚本同样适用）
+            静态 devirt：优先 NoVmpy（pip install --user novmpy，跨平台）；
+              NoVmp 在 Linux 可用 CMake 构建（依赖 vcpkg，较复杂，非必须）
        c. Android 组（so 模拟 trace/脱壳摸底）：
           unidbg（主路线，需 JDK 17+）: git clone --depth 1
             https://github.com/zhkl0228/unidbg → tools/android/unidbg；
