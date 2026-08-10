@@ -1,6 +1,8 @@
 # ReverseLab
 
 > 🎯 Discord：[**discord.gg/But5j58J2f**](https://discord.gg/But5j58J2f)
+>
+> [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/LING71671/open-reverselab)
 
 Open-source reverse engineering lab — 183-article knowledge base, 100+ MCP automation tools, covering CTF pentesting / APK reverse engineering / PE binary analysis / cryptography & protocol cracking / game cheating analysis. Agent-native, directory-as-convention.
 

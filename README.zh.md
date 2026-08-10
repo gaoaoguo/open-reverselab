@@ -1,6 +1,8 @@
 # ReverseLab
 
 > 🎯 Discord：[**discord.gg/But5j58J2f**](https://discord.gg/But5j58J2f)
+>
+> [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/LING71671/open-reverselab)
 
 开源逆向工程实验环境 —— 183 篇知识库文章，100+ MCP 自动化工具，覆盖 CTF 渗透测试 / APK 逆向 / PE 二进制分析 / 加密协议破解 / 游戏作弊分析。Agent 原生设计，目录即约定。
 
