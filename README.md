@@ -1,7 +1,5 @@
 # ReverseLab
 
-> **Note:** This project is a personal, non-commercial open-source effort. As of now, the author has **no business relationship, partnership, sponsorship, or affiliation of any kind with any individual or organization**, and receives **no revenue or financial benefit** from this project in any form.
-
 > 🎯 Discord：[**discord.gg/But5j58J2f**](https://discord.gg/But5j58J2f)
 
 Open-source reverse engineering lab — 183-article knowledge base, 100+ MCP automation tools, covering CTF pentesting / APK reverse engineering / PE binary analysis / cryptography & protocol cracking / game cheating analysis. Agent-native, directory-as-convention.
